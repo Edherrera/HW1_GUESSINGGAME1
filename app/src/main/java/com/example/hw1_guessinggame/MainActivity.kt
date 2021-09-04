@@ -21,18 +21,18 @@ class MainActivity : AppCompatActivity() {
     fun myFunction(p: View){
         val editNumber : EditText = findViewById(R.id.editNumber)
         val myTextView : TextView = findViewById(R.id.myText)
-        val num = editNumber.text.toString()
+        val num = editNumber.text.toString().toInt()
 
 
         //Toast.makeText(this, "Hello ${num}!!", Toast.LENGTH_LONG).show()
         myTextView.text = "Ingresaste el: ${num}"
-        /*
+
         if (num == randomNumber){
             myTextView.text = "ganaste: ${num}"
         }else{
             myTextView.text = "perdiste: ${num}"
         }
-        */
+
 
     }
 
