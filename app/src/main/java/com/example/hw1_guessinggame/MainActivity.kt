@@ -11,37 +11,55 @@ import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
-    var randomNumber : Int = Random.nextInt(1,1000)
+    var randomNumber: Int = Random.nextInt(1, 1000)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
 
-    fun myFunction(p: View){
-        val editNumber : EditText = findViewById(R.id.editNumber)
-        val myTextView : TextView = findViewById(R.id.myText)
+    fun myFunction(p: View) {
+        val editNumber: EditText = findViewById(R.id.editNumber)
+        val myTextView: TextView = findViewById(R.id.myText)
 
         if (editNumber.text.toString().length == 0) {
-                myTextView.text = "Error... ingrese un numero"
-            } else {
+            myTextView.text = "Error... ingrese un numero valido"
+
+        } else {
 
             val num = editNumber.text.toString().toInt()
 
-            println(randomNumber)
+            //println(randomNumber)
 
-
-            Toast.makeText(this, "Hello ${randomNumber}!!", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Numero ingresado ${randomNumber}!!", Toast.LENGTH_LONG).show()
             //myTextView.text = "Ingresaste el: ${num}"
 
+
+            //myTextView.text = ""
             if (num == randomNumber) {
-                myTextView.text = "ganaste adivinaste si es el numero ${num}"
+                myTextView.text = "ganaste adivinaste el numero ${num}"
             } else {
-                myTextView.text = "perdiste no era el numero ${num}"
+                myTextView.text = "perdiste no es el numero ${num}... sigue intentando"
             }
+
+            if (num < randomNumber){
+                     myTextView.text = "sigue intentanto el numero a adivinar es mayor que  ${num}"
+            }
+            if (num > randomNumber){
+                myTextView.text = "sigue intentanto el numero a adivinar es menor que  ${num}"
+            }
+
 
         }
     }
 
+    /*
+    fun reiniciar(p: View) {
+        val editNumber: EditText = findViewById(R.id.editNumber)
+        val myTextView: TextView = findViewById(R.id.myText)
 
+        myTextView.text = ""
+        editNumber.text = ""
+    }
+    */
 }
