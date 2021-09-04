@@ -21,19 +21,26 @@ class MainActivity : AppCompatActivity() {
     fun myFunction(p: View){
         val editNumber : EditText = findViewById(R.id.editNumber)
         val myTextView : TextView = findViewById(R.id.myText)
-        val num = editNumber.text.toString().toInt()
+
+        if (editNumber.text.toString().length == 0) {
+                myTextView.text = "Error... ingrese un numero"
+            } else {
+
+            val num = editNumber.text.toString().toInt()
+
+            println(randomNumber)
 
 
-        //Toast.makeText(this, "Hello ${num}!!", Toast.LENGTH_LONG).show()
-        myTextView.text = "Ingresaste el: ${num}"
+            Toast.makeText(this, "Hello ${randomNumber}!!", Toast.LENGTH_LONG).show()
+            //myTextView.text = "Ingresaste el: ${num}"
 
-        if (num == randomNumber){
-            myTextView.text = "ganaste: ${num}"
-        }else{
-            myTextView.text = "perdiste: ${num}"
+            if (num == randomNumber) {
+                myTextView.text = "ganaste adivinaste si es el numero ${num}"
+            } else {
+                myTextView.text = "perdiste no era el numero ${num}"
+            }
+
         }
-
-
     }
 
 
